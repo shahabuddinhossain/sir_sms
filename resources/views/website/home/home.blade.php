@@ -61,7 +61,7 @@
                                         {!! $subject->short_description !!}
                                     </ul>
                                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    <a href="{{route('course-detail')}}" class="btn btn-outline-success">Read More</a>
+                                    <a href="{{route('course-detail',['id' => $subject->id])}}" class="btn btn-outline-success">Read More</a>
                                     <a href="" class="btn btn-outline-info float-end">Apply Now</a>
                                 </div>
                             </div>

@@ -5,3 +5,8 @@
     background-size: cover;
     background-attachment: fixed;
 }
+
+
+mh-200p{
+    max-height: 200px;
+}

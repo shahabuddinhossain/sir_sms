@@ -6,22 +6,19 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card card-body rounded-0">
-                        <img src="{{asset('/')}}img/p1.jpg" alt="" class="w-100"/>
+                        <img src="{{asset($subject->image)}}" alt="" class="w-100"/>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card card-body rounded-0">
-                        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
-                        <p>Course Fee : 15500</p>
+                        <h1>{{$subject->title}}</h1>
+                        <p>Course Fee : {{$subject->fee}}</p>
+                        <a href="" class="btn btn-outline-success w-25 mx-auto"> Enroll Now </a>
                         <hr/>
-                        <h2>Trainer Name</h2>
-                        <ul>
-                            <li><a href="">Trainer LinkedIn Link</a></li>
-                            <li><a href="">Trainer FaceBook Link</a></li>
-                            <li><a href="">Trainer Twitter Link</a></li>
-                        </ul>
+                        <h2>Trainer Name: {{$subject->teacher->name}}</h2>
+                        <img src="{{asset($subject->teacher->image)}}" alt="" height="250px" width="200px">
                         <hr/>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolore, eos facere facilis ipsa molestias perspiciatis quod similique soluta. Ad sit, veniam. Aspernatur aut consequuntur ex, hic laborum mollitia provident?</p>
+                        <p>{!! $subject->short_description !!}</p>
                     </div>
                 </div>
             </div>
@@ -35,17 +32,11 @@
                     <div class="card card-body rounded-0">
                         <h1>Course Module Detail</h1>
                         <hr/>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet assumenda consectetur consequatur cumque delectus dolore earum eos hic laborum nulla optio, quisquam quo sit velit. Excepturi nihil sed velit.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet assumenda consectetur consequatur cumque delectus dolore earum eos hic laborum nulla optio, quisquam quo sit velit. Excepturi nihil sed velit.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet assumenda consectetur consequatur cumque delectus dolore earum eos hic laborum nulla optio, quisquam quo sit velit. Excepturi nihil sed velit.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet assumenda consectetur consequatur cumque delectus dolore earum eos hic laborum nulla optio, quisquam quo sit velit. Excepturi nihil sed velit.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet assumenda consectetur consequatur cumque delectus dolore earum eos hic laborum nulla optio, quisquam quo sit velit. Excepturi nihil sed velit.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet assumenda consectetur consequatur cumque delectus dolore earum eos hic laborum nulla optio, quisquam quo sit velit. Excepturi nihil sed velit.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet assumenda consectetur consequatur cumque delectus dolore earum eos hic laborum nulla optio, quisquam quo sit velit. Excepturi nihil sed velit.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet assumenda consectetur consequatur cumque delectus dolore earum eos hic laborum nulla optio, quisquam quo sit velit. Excepturi nihil sed velit.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet assumenda consectetur consequatur cumque delectus dolore earum eos hic laborum nulla optio, quisquam quo sit velit. Excepturi nihil sed velit.</p>
+                        <div>
+                            {!! $subject->long_description !!}
+                        </div>
                         <hr/>
-                        <a href="" class="btn btn-outline-success w-25 mx-auto"> Enroll Now </a>
+                        <a href="{{route('enroll-now',['id' => $subject->id])}}" class="btn btn-outline-success w-25 mx-auto"> Enroll Now </a>
                     </div>
                 </div>
             </div>
