@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeacherDashboardController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\AdminCourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/manage-teacher', [Teacher
 Route::middleware(['auth:sanctum', 'verified'])->get('/edit-teacher/{id}', [TeacherController::class, 'edit'])->name('edit-teacher');
 Route::middleware(['auth:sanctum', 'verified'])->post('/update-teacher/{id}', [TeacherController::class, 'update'])->name('update-teacher');
 Route::middleware(['auth:sanctum', 'verified'])->get('/delete-teacher/{id}', [TeacherController::class, 'delete'])->name('delete-teacher');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/manage-course', [AdminCourseController::class, 'manage'])->name('manage-course');
+Route::middleware(['auth:sanctum', 'verified'])->get('/view-detail/{id}', [AdminCourseController::class, 'detail'])->name('view-detail');
+Route::middleware(['auth:sanctum', 'verified'])->get('/update-status/{id}', [AdminCourseController::class, 'updateStatus'])->name('update-status');
 
 
 Route::get('/add-subject', [SubjectController::class, 'index'])->name('add-subject');

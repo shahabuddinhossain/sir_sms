@@ -11,6 +11,7 @@ class Subject extends Model
     use HasFactory;
 
     private static $subject;
+    private static $message;
     private static $directory;
     private static $image;
     private static $imageName;
@@ -43,6 +44,22 @@ class Subject extends Model
     public function teacher()
     {
         return $this->belongsTo('App\Models\Teacher');
+    }
+
+    public static function updateSubjectStatus($id)
+    {
+        self::$subject =Subject::find($id);
+        if(self::$subject->status ==0 )
+        {
+            self::$subject->status =1;
+            self::$message = 'Course info active Successfully';
+        }
+        else{
+            self::$subject->status =0;
+            self::$message = 'Course info active Successfully';
+        }
+        self::$subject->save();
+        return self::$message;
     }
 
 
