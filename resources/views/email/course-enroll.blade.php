@@ -8,10 +8,10 @@
     <title>Course Enroll Confirmation</title>
 </head>
 <body>
-    <h1>Congratulation Mr. {{$data['name]}}, Your course registration successfully.</h1>
+    <h1>Congratulation Mr. {{$data['name']}}, Your course registration successfully.</h1>
     <h3>Your Login Credential is given below.</h3>
-    <p>User ID: {{$date['user_id']}}</p>
-    <p>Password: {{$date['password']}}</p>
+    <p>User ID: {{$data['user_id']}}</p>
+    <p>Password: {{$data['password']}}</p>
 
 </body>
 </html>

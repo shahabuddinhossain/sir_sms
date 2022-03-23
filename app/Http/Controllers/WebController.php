@@ -8,6 +8,7 @@ use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Session;
+use Illuminate\Support\Facades\Mail;
 
 class WebController extends Controller
 {
@@ -50,6 +51,7 @@ class WebController extends Controller
 
         $this->enroll = new Enroll();
         $this->enroll->subject_id = $id;
+        $this->enroll->student_id = $this->student->id;
         $this->enroll->enroll_date = date('Y-m-d');
         $this->enroll->enroll_timestamp = strtotime(date('Y-m-d'));
         $this->enroll->save();
@@ -64,7 +66,7 @@ class WebController extends Controller
         Mail::to($request->email)->send(new EnrollConfirmationMail($this->data));
 
 
-        return redirect('/course-detail/'.id)->with('message','Registration Successfully.');
+        return redirect('/course-detail/'.$id)->with('message','Registration Successfully.');
 
 
 

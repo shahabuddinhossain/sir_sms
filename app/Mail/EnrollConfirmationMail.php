@@ -29,6 +29,6 @@ class EnrollConfirmationMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Course Enroll Confirmation Mail.')->view('email.course-email');
+        return $this->subject('Course Enroll Confirmation Mail.')->view('email.course-enroll');
     }
 }
