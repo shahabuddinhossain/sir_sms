@@ -9,6 +9,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeacherDashboardController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\AdminCourseController;
+use App\Http\Controllers\StudentDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +30,11 @@ Route::post('/new-enroll/{id}', [WebController::class, 'newEnroll'])->name('new-
 Route::get('/user-login', [AuthController::class, 'login'])->name('user-login');
 Route::post('/new-login', [AuthController::class, 'newLogin'])->name('new-login');
 Route::post('/user-logout', [AuthController::class, 'logout'])->name('user-logout');
+Route::post('/student-logout', [AuthController::class, 'studentLogout'])->name('student-logout');
 Route::get('/user-register', [AuthController::class, 'register'])->name('user-register');
 
 Route::get('/teacher-dashboard', [TeacherDashboardController::class, 'index'])->name('teacher-dashboard');
+Route::get('/student-dashboard', [StudentDashboardController::class, 'index'])->name('student-dashboard');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

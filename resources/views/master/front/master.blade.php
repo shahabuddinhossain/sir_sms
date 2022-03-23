@@ -22,7 +22,11 @@
                             {{Session::get('student_name')}}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="" class="dropdown-item">logout</a></li>
+                            <li><a href="{{route('student-dashboard')}}" class="dropdown-item">Dashboard</a></li>
+                            <li><a href="" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('studentLogoutForm').submit();">logout</a></li>
+                            <form action="{{route('student-logout')}}" method="POST" id="studentLogoutForm">
+                                @csrf
+                            </form>
                         </ul>
                     </li>
 
